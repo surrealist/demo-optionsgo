@@ -14,12 +14,16 @@ namespace Efin.OptionsGo.Models
     [StringLength(100)]
     public string Name { get; set; } = "Portfolio";
 
+    public bool IsActive { get; set; } = true;
+
     public virtual ICollection<Order> Orders { get; set; }
 
     public double Index { get; set; }
-    public double ProfitLoss 
+    public double ProfitLoss
       => Orders.Sum(x => x.CalculatePL(Index));
-    
+
+    public DateTimeOffset? CreatedDate { get; set; }
+
     public Order? AddOrder(string text)
     {
       var o = Order.FromText(text);

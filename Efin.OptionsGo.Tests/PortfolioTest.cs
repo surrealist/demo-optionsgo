@@ -29,9 +29,9 @@ namespace Efin.OptionsGo.Models.Tests
 
       [Fact]
       public void InvalidOrder_NotAddedToPort()
-      { 
-        Portfolio p = new Portfolio();          
-        Order? o = p.AddOrder("");         
+      {
+        Portfolio p = new Portfolio();
+        Order? o = p.AddOrder("");
         Assert.Null(o);
         Assert.Empty(p.Orders);
       }
@@ -78,7 +78,7 @@ namespace Efin.OptionsGo.Models.Tests
         Assert.Equal(50.0, pl);
       }
 
-      [Fact]
+      [Fact(Skip = "homework")]
       public void LongCall()
       {
         Portfolio p = new();
