@@ -14,6 +14,8 @@ namespace Efin.OptionsGo.Models
     [StringLength(100)]
     public string Name { get; set; } = "Portfolio";
 
+    public bool IsActive { get; set; } = true;
+
     public virtual ICollection<Order> Orders { get; set; }
 
     public double Index { get; set; }
