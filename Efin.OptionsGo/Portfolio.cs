@@ -19,9 +19,11 @@ namespace Efin.OptionsGo.Models
     public virtual ICollection<Order> Orders { get; set; }
 
     public double Index { get; set; }
-    public double ProfitLoss 
+    public double ProfitLoss
       => Orders.Sum(x => x.CalculatePL(Index));
-    
+
+    public DateTimeOffset? CreatedDate { get; set; }
+
     public Order? AddOrder(string text)
     {
       var o = Order.FromText(text);

@@ -13,5 +13,23 @@ namespace Efin.OptionsGo.Services
     {
       //
     }
+
+    public Portfolio Create(string name)
+    {
+      if (!app.IsAuthenticated)
+      {
+        throw new Exception("");
+      }
+
+      var p = new Portfolio();
+      p.Name = name;
+      p.IsActive = true;
+      p.CreatedDate = app.Now();
+
+      app.Portfolios.Add(p);
+      app.SaveChanges();
+
+      return p;
+    }
   }
 }

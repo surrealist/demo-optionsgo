@@ -79,8 +79,8 @@ namespace GMM.Bookings.APIs.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Sub, result.username),
                 new Claim(JwtRegisteredClaimNames.Name, result.username),
-                new Claim("gmm-role", result.roleName),
-                new Claim("gmm-id", result.id.ToString()),
+                new Claim("app-role", result.roleName),
+                new Claim("app-id", result.id.ToString()),
              }
           ),
           Expires = DateTime.UtcNow.AddDays(30),
