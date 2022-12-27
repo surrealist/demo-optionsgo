@@ -12,10 +12,11 @@ namespace Efin.OptionsGo.Services
     public App(AppDb db) : base(db)
     {
       Portfolios = new PortfolioService(this);
+      Users = new UserService(this);
     }
 
-    public PortfolioService Portfolios { get; set; }
+    public UserService Users { get; }
 
-
+    public PortfolioService Portfolios { get; }
   }
 }

@@ -6,7 +6,11 @@ namespace Efin.OptionsGo.Services
   {
     internal readonly AppDb db;
 
-    public AppBase(AppDb db) => this.db = db;
+    public AppBase(AppDb db)
+    {
+      this.db = db;
+    }
+
 
     public int SaveChanges() => db.SaveChanges();
     public Task<int> SaveChangesAsync() => db.SaveChangesAsync();
