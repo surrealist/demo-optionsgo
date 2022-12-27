@@ -6,9 +6,11 @@ namespace Efin.OptionsGo.Services
   {
     IQueryable<T> Query(Expression<Func<T, bool>> predicate);
     IQueryable<T> All();
-    T Find(params object[] keys);
+    T? Find(params object[] keys);
     ValueTask<T?> FindAsync(params object[] keys);
 
-
+    T Add(T item);
+    T Update(T item);
+    T Remove(T item);
   }
 }

@@ -20,6 +20,5 @@ namespace Efin.OptionsGo.Services
     public virtual T Add(T item) => app.db.Set<T>().Add(item).Entity;
     public virtual T Update(T item) => app.db.Set<T>().Update(item).Entity;
     public virtual T Remove(T item) => app.db.Set<T>().Remove(item).Entity;
-
   }
 }

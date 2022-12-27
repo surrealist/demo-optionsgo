@@ -1,19 +1,19 @@
 ﻿using Efin.OptionsGo.Services.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Efin.OptionsGo.Services
 {
   public abstract class AppBase
   {
-    private readonly AppDb db;
+    internal readonly AppDb db;
 
-    public AppBase(AppDb db)
-    {
-      this.db = db;
-    }
+    public AppBase(AppDb db) => this.db = db;
+
+    public int SaveChanges() => db.SaveChanges();
+    public Task<int> SaveChangesAsync() => db.SaveChangesAsync();
+
+    public Func<DateTimeOffset> Now { get; private set; } = () => DateTimeOffset.Now;
+    public void SetNow(DateTimeOffset now) => Now = () => now;
+    public void ResetNow() => Now = () => DateTimeOffset.Now;
+    public DateTimeOffset Today() => Now().Date;
   }
 }
